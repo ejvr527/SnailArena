@@ -6,9 +6,9 @@ import sys
 
 uno='/dev/ttyACM0'
 pico='/dev/ttyACM0'
-ttgo='/dev/ttyUSB0'
+nano='/dev/ttyUSB0'
 ser = serial.Serial(
-    port=uno,
+    port=nano,
     baudrate=115200,
     timeout=1
 )
