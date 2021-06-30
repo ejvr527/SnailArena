@@ -87,6 +87,15 @@ void averaged(float humidity[4],float temperature[4]){
   Serial.print(have);
   Serial.println("");
 }
+float ave(float arr[4]){
+  float sum=0.0;
+  float average=0.0;
+  for (int i = 0; i < 4; i++) {
+    sum=sum+arr[i];
+  }
+  average=sum/4;
+  return average;
+}
 void loop() {
 //  readFromDHT
   for (int i = 0; i < 4; i++) {
@@ -96,19 +105,31 @@ void loop() {
   
 //  loopTable(humidity, temperature);
 //  thruSerial(humidity, temperature);
-  averaged(humidity, temperature);
+//  averaged(humidity, temperature);
+  float temp = ave(temperature);
+  float hum = ave(humidity);
   
   int ldr = analogRead(A0);
   float ldr_volt = ldr * (5.0 / 1023.0);
-  Serial.println(ldr_volt);
+//  Serial.println(ldr_volt);
 
   int temp1 = analogRead(A1);
   float temp1_volt = temp1 * (5.0 / 1023.0);
-  Serial.println(temp1_volt);
-
+//  Serial.println(temp1_volt);
+  float temp1_measure = -32.7*temp1_volt + 76.7;
+  
   int temp2 = analogRead(A2);
   float temp2_volt = temp2 * (5.0 / 1023.0);
-  Serial.println(temp2_volt);
+  float temp2_measure = 21.2*temp2_volt + 98.2;
+//  Serial.println(temp2_volt);
+  Serial.print(temp);
+  Serial.print(",");
+  Serial.print(hum);
+  Serial.print(",");
+  Serial.print(ldr);
+  Serial.print(",");
+  Serial.print(temp);
+  Serial.println("");
   
   delay(1000);
 }
