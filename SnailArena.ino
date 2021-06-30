@@ -126,9 +126,11 @@ void loop() {
   Serial.print(",");
   Serial.print(hum);
   Serial.print(",");
-  Serial.print(ldr);
+  Serial.print(ldr_volt);
   Serial.print(",");
-  Serial.print(temp);
+  Serial.print(temp1_measure);
+  Serial.print(",");
+  Serial.print(temp2_measure);
   Serial.println("");
   
   delay(1000);
