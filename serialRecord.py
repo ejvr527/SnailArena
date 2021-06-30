@@ -1,3 +1,4 @@
+# TO RUN in terminal: python3 serialRecord.py <filename>
 import serial
 import numpy as np
 import time
